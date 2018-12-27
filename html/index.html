@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>call(), apply(), bind()的使用</title>
+</head>
+<body>
+
+    <div>
+        call(), apply(), bind()的使用
+    </div>
+
+    <script>
+        var name = "小雷",
+            age = 17;
+
+        var obj = {
+            name: "小旭",
+            objAge: this.age,
+            myFun: function(fm, t) {
+                console.log(this.name + "," + this.age , "来自" + fm + "去往" + t);
+            }
+        }
+
+        // console.log(this);
+
+        // obj.objAge;
+        // obj.myFun();
+
+        // var fav = "盲僧";
+        // function show() {
+        //     console.log(this.fav);
+        // }
+
+        // show();
+
+        var db = {
+            name: "德玛",
+            age: 99
+        };
+
+        obj.myFun.call(db, "成都", "上海");
+
+        obj.myFun.apply(db, ["成都", "上海"]);
+
+        obj.myFun.bind(db, "成都", "上海")();
+
+        obj.myFun.bind(db, ['成都','上海'], ['成1都','上2海'])();
+        
+
+    </script>
+</body>
+</html>
