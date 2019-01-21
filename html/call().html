@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>call()</title>
+</head>
+<body>
+
+<script>
+    function Product(name, price) {
+        this.name = name;
+        this.price= price;
+        console.log(this);
+    }
+
+    function Food(name, price) {
+        Product.call(this, name, price);
+    }
+
+    console.log(new Food('cheese', 5).name);
+</script>
+
+</body>
+</html>

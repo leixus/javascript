@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>请输入一个数字</p>
+    <input type="text" id="txt" />
+    <input type="button" value="判断奇偶" onclick="message()">
+    <h3 id="output"></h3>
+    <script>
+        function message()
+        {
+            try
+            {
+                var oIn = document.getElementById('txt');
+                var oOut = document.getElementById('output');
+                if(oIn.value%2==1){
+                    throw '这是奇数'
+                }else if(oIn.value%2==0){
+                    throw '这是偶数'
+                }else{
+                    throw '这不是数字'
+                }
+            }
+            catch(err)
+            {//这里的err 就是throw的错误内容
+                oOut.innerText = err
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var o = {};
+    Object.defineProperty(o, "a", {
+        value : 37,
+        writable : true,
+        enumerable : true,
+        configurable : true
+    });
+
+    // console.log(o);
+    var bValue;
+    Object.defineProperty(o, "b", {
+        get : function(){
+            return bValue;
+        },
+        set : function(newValue){
+            bValue = newValue;
+        },
+        enumerable : true,
+        configurable : true
+    });
+
+    o.b = 38;
+
+    // console.log(o);
+    Object.defineProperty(o, "conflit", {
+        get: function () {
+            return va;
+        },
+        set: function (v) {
+            va = v;
+        }
+    });
+
+    o.conflit = 115;
+
+    console.log(o);
+
+</script>
+</body>
+</html>
